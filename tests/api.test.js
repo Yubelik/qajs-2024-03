@@ -1,36 +1,77 @@
-// const data = null;
+describe('User test', () => {
+  it('User exist', async () => {
+    const response = await fetch(
+      'https://bookstore.demoqa.com/Account/v1/User',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent': 'insomnia/9.1.1',
+        },
+        body: '{"userName":"User","password":"Aasdasd_!231231"}',
+      },
+    )
 
-// const xhr = new XMLHttpRequest();
-// xhr.withCredentials = true;
-
-// xhr.addEventListener("readystatechange", function () {
-//   if (this.readyState === this.DONE) {
-//     console.log(this.responseText);
-//   }
-// });
-
-// xhr.open("GET", "https://bookstore.demoqa.com/Account/v1/User/1?=");
-// xhr.setRequestHeader("User-Agent", "insomnia/9.1.1");
-
-// xhr.send(data);
-;(async function main() {
-  const response = await fetch('https://reqres.in/api/users2', {
-    method: 'DELETE',
+    expect(response.status).toBe(406)
   })
-  console.log('Staus: ', response.status)
-  // const data = await response.json()
-  // console.log(data)
-})()
-;(async function main() {
-  const response = await fetch('https://reqres.in/api/users?page=2', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'User-Agent': 'insomnia/9.1',
-    },
-    body: '{"userName":"User","password":"Aasdasd_!23123"}',
+  it('Password must have', async () => {
+    const response = await fetch(
+      'https://bookstore.demoqa.com/Account/v1/User',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent': 'insomnia/9.1.1',
+        },
+        body: '{"userName":"User","password":"Aasdasd"}',
+      },
+    )
+    const data = await response.json()
+    expect(data.code).toBe('1300')
   })
-  console.log('Staus: ', response.status)
-  const data = await response.json()
-  console.log(data)
-})()
+
+  it('Success login', async () => {
+    const response = await fetch(
+      'https://bookstore.demoqa.com/Account/v1/Authorized',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent': 'insomnia/9.1',
+        },
+        body: '{"userName":"User","password":"Aasdasd_!23123"}',
+      },
+    )
+    expect(response.status).toBe(200)
+  })
+  it('GenerateToken status', async () => {
+    const response = await fetch(
+      'https://bookstore.demoqa.com/Account/v1/GenerateToken',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent': 'insomnia/9.1',
+        },
+        body: '{"userName":"User","password":"Aasdasd_!23123"}',
+      },
+    )
+    const data = await response.json()
+    expect(data.status).toBe('Success')
+  })
+  it('GenerateToken Failed', async () => {
+    const response = await fetch(
+      'https://bookstore.demoqa.com/Account/v1/GenerateToken',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'User-Agent': 'insomnia/9.1',
+        },
+        body: '{"userName":"User","password":"Aasdasd"}',
+      },
+    )
+    const data = await response.json()
+    expect(data.status).toBe('Failed')
+  })
+})
