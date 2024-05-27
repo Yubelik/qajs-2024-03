@@ -7,7 +7,7 @@ export default {
   moduleFileExtensions: ['js', 'json'],
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
-    //'\\.css$': 'some-css-transformer',
+    // '\\.css$': 'some-css-transformer',
   },
   // testMatch: ['**/specs/*.spec.*'],
   testMatch: ['**/tests/*.test.*'],

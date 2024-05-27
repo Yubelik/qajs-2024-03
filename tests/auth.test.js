@@ -1,4 +1,4 @@
-import AuthService from '../framework/services/AuthService.js'
+import AuthService from '../framework/services/AuthService.mjs'
 
 describe('Авторизация', () => {
   it('Успешная авторизация', async () => {
