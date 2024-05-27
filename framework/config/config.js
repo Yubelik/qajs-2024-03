@@ -1,4 +1,4 @@
-// import 'dotenv/config'
+import 'dotenv/config'
 
 const config = {
   basedUrl: 'https://bookstore.demoqa.com/Account/v1/User' ?? 'http://...',
