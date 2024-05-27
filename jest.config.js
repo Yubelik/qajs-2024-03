@@ -5,8 +5,9 @@ export default {
   // collectCoverageFrom: ['src/**/*.js'],
   collectCoverageFrom: ['tests/**/*.js'],
   moduleFileExtensions: ['js', 'json'],
+  transformIgnorePatterns: ['node_modules/(?!(sucrase)/)'],
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
+    '^.+\\.(js|jsx|ts|tsx|mjs)$': 'babel-jest',
     // '\\.css$': 'some-css-transformer',
   },
   // testMatch: ['**/specs/*.spec.*'],
