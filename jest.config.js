@@ -7,7 +7,7 @@ export default {
   moduleFileExtensions: ['js', 'json'],
   transformIgnorePatterns: ['node_modules/(?!(sucrase)/)'],
   transform: {
-    '^.+\\.(js|jsx|ts|tsx|mjs)$': 'babel-jest',
+    '\\.[jt]sx?$': 'babel-jest',
     // '\\.css$': 'some-css-transformer',
   },
   // testMatch: ['**/specs/*.spec.*'],

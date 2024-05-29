@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node main.js",
     "test": "jest",
     "format:ci": "prettier . --check",
     "format": "prettier . --write",
@@ -17,6 +18,9 @@
   "keywords": [],
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
+    "babel-jest": "^29.7.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",

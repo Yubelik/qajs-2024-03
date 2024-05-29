@@ -6,6 +6,4 @@ const config = {
   password: 'password',
 }
 
-console.log(config)
-
 export default Object.freeze(config)
