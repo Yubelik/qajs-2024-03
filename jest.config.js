@@ -1,8 +1,8 @@
-export default {
+module.exports = {
   testEnvironment: 'node',
   collectCoverage: true,
   // collectCoverageFrom: ['src/**/*.js'],
-  collectCoverageFrom: ['tests/**/*.js'],
+  collectCoverageFrom: ['tests/*.js'],
   moduleFileExtensions: ['js', 'json'],
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
