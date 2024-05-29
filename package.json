@@ -37,11 +37,8 @@
     "ts-node": "^10.9.2"
   },
   "dependencies": {
-<<<<<<< HEAD
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
-=======
->>>>>>> 5762bab (:wq)
     "node-fetch": "^3.3.2"
   }
 }
