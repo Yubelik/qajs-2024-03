@@ -1,5 +1,5 @@
-import { config } from '../framework'
-import axios from 'axios'
+import config from '../framework/config/config.js'
+// import axios from 'axios'
 
 const scores = {
   Anna: 10,
@@ -14,7 +14,7 @@ function getScore(obj) {
 const summ = getScore(scores)
 
 console.log('summ = ', summ)
-console.log('config = ', config)
+console.log('config = ', config.baseURL)
 // const axios_response = await axios.get(
 //   'https://bookstore.demoqa.com/Account/v1/User',
 //   {
@@ -23,4 +23,4 @@ console.log('config = ', config)
 //   },
 // )
 
-console.log('axios_response = ', axios_response)
+// console.log('axios_response = ', axios_response)
