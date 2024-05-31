@@ -7,9 +7,7 @@ describe('Авторизация', () => {
       userName: config.userName,
       password: config.password,
     })
-    // console.log('userName', config.userName)
-    // console.log('password', config.password)
-    console.log('response.data.result', response)
+    console.log('response', response)
     expect(response.status).toBe(200)
     expect(response.data).toBe(true)
     // expect(response.data.token).toBeDefined()
