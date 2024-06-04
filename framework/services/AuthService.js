@@ -1,9 +1,4 @@
 import config from '../config/config.js'
-// console.log(
-//   config.userName,
-//   config.password,
-//   `${config.baseURL}/Account/v1/GenerateToken`,
-// )
 
 const addUser = async (userName, password) => {
   const response = await fetch(`${config.baseURL}/Account/v1/User`, {
@@ -11,7 +6,7 @@ const addUser = async (userName, password) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(userName, password),
   })
-  // console.log('userName = ', JSON.stringify(userName, password))
+
   return {
     headers: response.headers,
     status: response.status,
@@ -25,7 +20,6 @@ const loginUser = async (userName, password) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(userName, password),
   })
-  // console.log('userName = ', JSON.stringify(userName, password))
   return {
     headers: response.headers,
     status: response.status,
@@ -39,7 +33,6 @@ const generateToken = async (userName, password) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(userName, password),
   })
-  // console.log('userName = ', JSON.stringify(userName, password))
   return {
     headers: response.headers,
     status: response.status,
@@ -62,9 +55,6 @@ const authorized = async ({ userName, password }) => {
 }
 
 const deletUser = async ({ uuid }) => {
-  // console.log(
-  //   'строчка с uuid для отправки = ' + `${config.baseURL}/v1/User/${uuid}`,
-  // )
   const response = await fetch(`${config.baseURL}/v1/User/${uuid}`, {
     method: 'DELETE',
     headers: {
@@ -73,14 +63,8 @@ const deletUser = async ({ uuid }) => {
     },
     body: 'false',
   })
-  // console.log(response.statusText)
-  console.log(response.status)
   return {
-    // response,
-
-    // headers: response.headers,
     status: response.status,
-    // data: await response.json(),
   }
 }
 

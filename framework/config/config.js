@@ -1,9 +1,11 @@
 import 'dotenv/config'
 
 const config = {
-  baseURL: 'https://bookstore.demoqa.com' ?? 'http://...',
-  userName: 'User',
-  password: 'Aasdasd_!23123',
+  baseURL: process.env.TEST_BASE_API_URL ?? 'https://bookstore.demoqa.com',
+  userId: process.env.TEST_USER_ID,
+  username: process.env.TEST_USERNAME,
+  password: process.env.TEST_PASSWORD,
+  browser: process.env.BROWSER,
 }
 
 export default Object.freeze(config)

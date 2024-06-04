@@ -1,23 +1,18 @@
 import AuthService from '../framework/services/AuthService.js'
 import config from '../framework/config/config.js'
+import UserFixture from '../framework/fixtures/userFixture.js'
 let uuidUser
 describe('Создание пользователя', () => {
-  // it('Пользователь успешно создан', async () => {
-  //   const response = await AuthService.addUser({
-  //     userName: config.userName,
-  //     password: config.password,
-  //   })
-  //   // console.log('response', response)
-  //   expect(response.status).toBe(200)
-  //   expect(response.data).toBe(true)
-  // })
   it('Пользователь существует', async () => {
     const response = await AuthService.addUser({
       userName: config.userName,
       password: config.password,
     })
-    // console.log('response', response)
     expect(response.status).toBe(406)
+  })
+  it('Динамические пользовательские фикстуры', () => {
+    const credent = UserFixture.generateUserCredentials()
+    console.log(credent)
   })
 })
 
@@ -28,10 +23,7 @@ describe('Логин', () => {
       password: config.password,
     })
     expect(response.status).toBe(200)
-    // expect(response.data).toBe(true)
     uuidUser = response.data.userId
-
-    // expect(response.data.token).toBeDefined()
   })
 })
 
@@ -41,10 +33,8 @@ describe('Авторизация', () => {
       userName: config.userName,
       password: config.password,
     })
-    // console.log('response authorized', response)
     expect(response.status).toBe(200)
     expect(response.data).toBe(true)
-    // expect(response.data.token).toBeDefined()
   })
 
   it('Нельзя авторизоваться без пароля', async () => {
@@ -59,11 +49,9 @@ describe('Авторизация', () => {
 })
 describe('Удаление пользователя', () => {
   it('Пользователь удален', async () => {
-    // console.log('uuidUser', uuidUser)
     const response = await AuthService.deletUser({
       uuid: uuidUser,
     })
-    // console.log('response пользователь удален =', response)
     expect(response.status).toBe(200)
     expect(response.status).toBe(200)
   })
