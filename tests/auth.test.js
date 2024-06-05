@@ -1,6 +1,9 @@
 import AuthService from '../framework/services/AuthService.js'
 import config from '../framework/config/config.js'
 import UserFixture from '../framework/fixtures/userFixture.js'
+import axios from 'axios'
+
+console.log('axios = ' + axios.isCancel('something'))
 let uuidUser
 describe('Создание пользователя', () => {
   it('Пользователь существует', async () => {
@@ -12,7 +15,7 @@ describe('Создание пользователя', () => {
   })
   it('Динамические пользовательские фикстуры', () => {
     const credent = UserFixture.generateUserCredentials()
-    console.log(credent)
+    // console.log(credent)
   })
 })
 
