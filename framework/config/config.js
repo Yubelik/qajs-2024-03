@@ -1,4 +1,8 @@
-import 'dotenv/config'
+// import 'dotenv/config'
+// require('dotenv').config()
+
+const dotenv = require('dotenv');
+dotenv.config({ path: '../.env' });
 
 const config = {
   baseURL: process.env.TEST_BASE_API_URL ?? 'https://bookstore.demoqa.com',
@@ -9,3 +13,6 @@ const config = {
 }
 
 export default Object.freeze(config)
+
+
+

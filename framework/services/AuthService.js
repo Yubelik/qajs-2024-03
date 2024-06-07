@@ -68,10 +68,26 @@ const deletUser = async ({ uuid }) => {
   }
 }
 
+const addBook = async ({ uuid }) => {
+  const response = await fetch(`${config.baseURL}/BookStore/v1/Books`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Basic VXNlcjpBYXNkYXNkXyEyMzEyMzE=',
+    },
+    body: 'false',
+  })
+  return {
+    status: response.status,
+  }
+}
+
+
 export default {
   addUser,
   loginUser,
   generateToken,
   authorized,
   deletUser,
+  addBook,
 }
