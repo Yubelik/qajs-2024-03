@@ -13,10 +13,6 @@ describe('Создание пользователя', () => {
     })
     expect(response.status).toBe(406)
   })
-  it('Динамические пользовательские фикстуры', () => {
-    const credent = UserFixture.generateUserCredentials()
-    // console.log(credent)
-  })
 })
 
 describe('Логин', () => {
