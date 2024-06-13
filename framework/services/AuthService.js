@@ -20,12 +20,16 @@ const loginUser = async (userName, password) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(userName, password),
   })
+
   return {
     headers: response.headers,
     status: response.status,
     data: await response.json(),
   }
 }
+// console.log('userName, password = ' + config.username + config.password)
+// const responseLoginUser = loginUser(config.username, config.password)
+// console.log('responseLoginUser = ' + responseLoginUser)
 
 const generateToken = async (userName, password) => {
   const response = await fetch(`${config.baseURL}/Account/v1/GenerateToken`, {
@@ -44,7 +48,7 @@ const authorized = async ({ userName, password }) => {
   const response = await fetch(`${config.baseURL}/Account/v1/Authorized`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ userName, password }),
+    body: JSON.stringify(userName, password),
   })
 
   return {
