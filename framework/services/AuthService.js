@@ -44,11 +44,11 @@ const generateToken = async (userName, password) => {
   }
 }
 
-const authorized = async ({ userName, password }) => {
+const authorized = async ( userName, password) => {
   const response = await fetch(`${config.baseURL}/Account/v1/Authorized`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(userName, password),
+    body: await JSON.stringify(userName, password),
   })
 
   return {
@@ -72,19 +72,7 @@ const deletUser = async ({ uuid }) => {
   }
 }
 
-const addBook = async ({ uuid }) => {
-  const response = await fetch(`${config.baseURL}/BookStore/v1/Books`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: 'Basic VXNlcjpBYXNkYXNkXyEyMzEyMzE=',
-    },
-    body: 'false',
-  })
-  return {
-    status: response.status,
-  }
-}
+
 
 
 export default {
@@ -93,5 +81,4 @@ export default {
   generateToken,
   authorized,
   deletUser,
-  addBook,
 }
