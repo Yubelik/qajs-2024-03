@@ -14,6 +14,7 @@ const getBook = async ({ isbn }) => {
   const response = await supertest(config.baseURL).get(
     `/BookStore/v1/Book?ISBN=${isbn}`,
   )
+  // console.log('url  = ' + config.baseURL + `/BookStore/v1/Book?ISBN=${isbn}`)
   return {
     headers: response.headers,
     status: response.status,
@@ -21,7 +22,7 @@ const getBook = async ({ isbn }) => {
   }
 }
 
-const createBook = () => {
+const createBook = ({ token }) => {
   const response = supertest(config.baseURL)
     .post(`/BookStore/v1/Books`)
     .set('Authorization', `Bearer ${token}`)
