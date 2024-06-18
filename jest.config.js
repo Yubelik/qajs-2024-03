@@ -11,7 +11,7 @@ export default {
     // '\\.css$': 'some-css-transformer',
   },
   // testMatch: ['**/specs/*.spec.*'],
-  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+  testMatch: ["**/tests/*.js", "**/?(*.)+(spec|test).[jt]s?(x)"],
   // testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
   globals: {
     testTimeout: 50000,
