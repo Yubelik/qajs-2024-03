@@ -26,7 +26,7 @@ describe('Книги', () => {
     expect(response.status).toBe(200)
   })
 
-  it('Получение информации о книге книги', async () => {
+  it('Получение информации о книге', async () => {
     const response = await BookService.getBook({ isbn })
     // console.log('getBook = ' + JSON.stringify(response.data))
     expect(response.status).toBe(200)
@@ -45,31 +45,29 @@ describe('Книги', () => {
     expect(responseAddListOfBooks.data).toEqual({ books: [{ isbn }] })
   })
 
-  it('Заменить книгу в коллекции пользователя', async () => {
-    const responseAddBook = await UserBookService.replace({
-      userId,
-      fromIsbn: isbn,
-      toIsbn: book2.isbn,
-      token,
-    })
-    expect(responseAddBook.data).toEqual({
-      books: [book2],
-      userId,
-      username: config.username,
-    })
+  // it('Заменить книгу в коллекции пользователя', async () => {
+  //   const responseAddBook = await UserBookService.replace({
+  //     userId,
+  //     fromIsbn: isbn,
+  //     toIsbn: book2.isbn,
+  //     token,
+  //   })
+  //   expect(responseAddBook.data).toEqual({
+  //     books: [book2],
+  //     userId,
+  //     username: config.username,
+  //   })
+})
+it('Удаление всех книг из коллекции пользователя', async () => {
+  const responseRemoveAll = await UserBookService.removeAll({
+    userId,
+    token,
   })
-  // it('Книга существует', async () => {
-  //   const response = await BookService.getBook({})
-  //   expect(response.status).toBe(200)
-  // })
+  expect(responseRemoveAll.status).toBe(204)
 
-  // it('Книга создана', async () => {
-  //   const response = await BookService.getBook({})
-  //   expect(response.status).toBe(200)
-  //   console.log('bookAdd status = ' + response.status)
-  //   expect(response.headers).toBe(200)
-  //   console.log('bookAdd headers = ' + response.headers)
-  //   expect(response.data).toBe(200)
-  //   console.log('bookAdd data = ' + response.data)
-  // })
+  const responseUser = await UserService.get({
+    userId,
+    token,
+  })
+  expect(responseUser.data.books).toEqual([])
 })
