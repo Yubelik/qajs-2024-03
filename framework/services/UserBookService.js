@@ -38,7 +38,22 @@ const addListOfBooks = async ({ userId, isbns, token }) => {
 const removeAllBooks = async ({ userId, token }) => {
   const response = await supertest(config.baseURL)
     .delete(`/BookStore/v1/Books?UserId=${userId}`)
-    .set('Authorization', `Bearer ${token}`)
+    .set('Authorization', 'Basic VXNlcjpBYXNkYXNkXyEyMzEyMw==')
+  return {
+    headers: response.headers,
+    status: response.status,
+    data: response.body,
+  }
+}
+const removeBook = async ({ userId, isbn }) => {
+  const payload = {
+    isbn,
+    collectionOfIsbns: isbns.map(isbn => ({ isbn })),
+  }
+  const response = await supertest(config.baseURL)
+    .delete(`/BookStore/v1/Books?UserId=${userId}`)
+    .set('Authorization', 'Basic VXNlcjpBYXNkYXNkXyEyMzEyMw==')
+    .send(payload)
   return {
     headers: response.headers,
     status: response.status,
@@ -50,4 +65,5 @@ export default {
   replace: replaceBook,
   addList: addListOfBooks,
   removeAll: removeAllBooks,
+  removeBook,
 }

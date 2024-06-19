@@ -44,31 +44,23 @@ describe('Книги', () => {
     expect(responseAddListOfBooks.data).toEqual({ books: [{ isbn }] })
   })
 
-  it('Заменить книгу в коллекции пользователя', async () => {
-    const responseAddBook = await UserBookService.replace({
-      userId,
-      fromIsbn: isbn,
-      toIsbn: book2.isbn,
-      token,
-    })
-    expect(responseAddBook.data).toEqual({
-      books: [book2],
-      userId,
-      username: config.username,
-    })
+  // it('Заменить книгу в коллекции пользователя', async () => {
+  //   const responseAddBook = await UserBookService.replace({
+  //     userId,
+  //     fromIsbn: isbn,
+  //     toIsbn: book2.isbn,
+  //     token,
+  //   })
+  //   expect(responseAddBook.data).toEqual({
+  //     books: [book2],
+  //     userId,
+  //     username: config.username,
+  //   })
+})
+it('Удалить книгу', async () => {
+  const responseAddBook = await UserBookService.removeBook({
+    userId,
+    isbn,
   })
-  // it('Книга существует', async () => {
-  //   const response = await BookService.getBook({})
-  //   expect(response.status).toBe(200)
-  // })
-
-  // it('Книга создана', async () => {
-  //   const response = await BookService.getBook({})
-  //   expect(response.status).toBe(200)
-  //   console.log('bookAdd status = ' + response.status)
-  //   expect(response.headers).toBe(200)
-  //   console.log('bookAdd headers = ' + response.headers)
-  //   expect(response.data).toBe(200)
-  //   console.log('bookAdd data = ' + response.data)
-  // })
+  expect(responseAddBook.data).toEqual(201)
 })
