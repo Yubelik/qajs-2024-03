@@ -25,8 +25,8 @@ const addListOfBooks = async ({ userId, isbns, token }) => {
   const response = await supertest(config.baseURL)
     .post('/BookStore/v1/Books')
     .set('Accept', 'application/json')
-    .set('Authorization', 'Basic VXNlcjpBYXNkYXNkXyEyMzEyMzE=')
-  // .send(payload)
+    .set('Authorization', 'Basic VXNlcjpBYXNkYXNkXyEyMzEyMw==')
+    .send(payload)
 
   return {
     headers: response.headers,
@@ -34,7 +34,7 @@ const addListOfBooks = async ({ userId, isbns, token }) => {
     data: response.body,
   }
 }
-
+// console.log(addListOfBooks)
 const removeAllBooks = async ({ userId, token }) => {
   const response = await supertest(config.baseURL)
     .delete(`/BookStore/v1/Books?UserId=${userId}`)

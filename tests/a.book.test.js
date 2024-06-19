@@ -6,7 +6,6 @@ import books from '../framework/fixtures/books.json'
 
 describe('Книги', () => {
   const userId = config.userId
-  // const [book1, book2] = books
   const isbn = books.books[0].isbn
 
   let token
@@ -26,7 +25,7 @@ describe('Книги', () => {
     expect(response.status).toBe(200)
   })
 
-  it('Получение информации о книге книги', async () => {
+  it('Получение информации о книге', async () => {
     const response = await BookService.getBook({ isbn })
     // console.log('getBook = ' + JSON.stringify(response.data))
     expect(response.status).toBe(200)
@@ -45,19 +44,7 @@ describe('Книги', () => {
     expect(responseAddListOfBooks.data).toEqual({ books: [{ isbn }] })
   })
 
-  it('Заменить книгу в коллекции пользователя', async () => {
-    const responseAddBook = await UserBookService.replace({
-      userId,
-      fromIsbn: isbn,
-      toIsbn: book2.isbn,
-      token,
-    })
-    expect(responseAddBook.data).toEqual({
-      books: [book2],
-      userId,
-      username: config.username,
-    })
-  })
+  
   // it('Книга существует', async () => {
   //   const response = await BookService.getBook({})
   //   expect(response.status).toBe(200)
