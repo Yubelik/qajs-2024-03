@@ -7,6 +7,7 @@ import books from '../framework/fixtures/books.json'
 describe('Книги', () => {
   const userId = config.userId
   const isbn = books.books[0].isbn
+  const [book2] = books.books[1].isbn
 
   let token
 
@@ -17,7 +18,6 @@ describe('Книги', () => {
     })
 
     token = data.token
-    // console.log(token)
   })
 
   it('Список книг', async () => {
@@ -27,40 +27,36 @@ describe('Книги', () => {
 
   it('Получение информации о книге', async () => {
     const response = await BookService.getBook({ isbn })
-    // console.log('getBook = ' + JSON.stringify(response.data))
     expect(response.status).toBe(200)
     expect(response.data.title).toEqual('Git Pocket Guide')
-    // let bookId = JSON.stringify(response.data.books[0].isbn)
-    // console.log('bookId = ' + bookId)
   })
 
   it('Добавление книги в коллекцию к пользователю', async () => {
-    const responseAddListOfBooks = await UserBookService.addList({
+    const response = await UserBookService.addBook({
       userId,
       isbns: [isbn],
-      token: token,
     })
-    console.log(responseAddListOfBooks)
-    expect(responseAddListOfBooks.data).toEqual({ books: [{ isbn }] })
+    expect(response.data).toEqual({ books: [{ isbn }] })
   })
 
-  // it('Заменить книгу в коллекции пользователя', async () => {
-  //   const responseAddBook = await UserBookService.replace({
-  //     userId,
-  //     fromIsbn: isbn,
-  //     toIsbn: book2.isbn,
-  //     token,
-  //   })
-  //   expect(responseAddBook.data).toEqual({
-  //     books: [book2],
-  //     userId,
-  //     username: config.username,
-  //   })
-})
-it('Удалить книгу', async () => {
-  const responseAddBook = await UserBookService.removeBook({
-    userId,
-    isbn,
+  it('Заменить книгу в коллекции пользователя', async () => {
+    const responseAddBook = await UserBookService.replace({
+      userId,
+      fromIsbn: isbn,
+      toIsbn: book2.isbn,
+    })
+    expect(responseAddBook.data).toEqual({
+      books: [book2],
+      userId,
+      username: config.username,
+    })
   })
-  expect(responseAddBook.data).toEqual(201)
+
+  it('Удалить книгу', async () => {
+    const response = await UserBookService.removeBook({
+      userId,
+      isbn,
+    })
+    expect(response.data).toEqual({})
+  })
 })
