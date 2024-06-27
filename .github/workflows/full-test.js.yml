@@ -47,7 +47,7 @@ jobs:
         with:
           name: report
           if-no-files-found: error
-          path: ./reports/html-report
+          path: ./reports/
 
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
@@ -63,10 +63,10 @@ jobs:
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
       
       - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
-      with:
-        path: './reports/html-report'
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './reports/'
 
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v1
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
