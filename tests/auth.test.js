@@ -14,7 +14,7 @@ describe('User test', () => {
 
     expect(response.status).toBe(406)
   })
-  it('Password must have', async () => {
+  it('Password must have?', async () => {
     const response = await fetch(
       'https://bookstore.demoqa.com/Account/v1/User',
       {
