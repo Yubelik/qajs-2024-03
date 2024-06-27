@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "module": "module",
+
   "scripts": {
     "start": "babel-node src/main.js",
     "test": "jest --verbose --setupFiles dotenv/config",
@@ -18,11 +19,13 @@
   "keywords": [],
   "license": "ISC",
   "devDependencies": {
+
     "@babel/core": "^7.24.6",
     "@babel/node": "^7.24.6",
     "@babel/preset-env": "^7.24.6",
     "@faker-js/faker": "^8.4.1",
     "babel-jest": "^29.7.0",
+
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",
@@ -37,8 +40,10 @@
     "ts-node": "^10.9.2"
   },
   "dependencies": {
+
     "axios": "^1.7.2",
     "dotenv": "^16.4.5",
+
     "node-fetch": "^3.3.2"
   }
 }

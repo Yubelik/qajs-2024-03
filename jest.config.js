@@ -1,7 +1,8 @@
 module.exports = {
   testEnvironment: 'node',
   collectCoverage: true,
-  collectCoverageFrom: ['tests/**/*.js'],
+  // collectCoverageFrom: ['src/**/*.js'],
+  collectCoverageFrom: ['tests/*.js'],
   moduleFileExtensions: ['js', 'json'],
   transformIgnorePatterns: ['node_modules/(?!(sucrase)/)'],
   transform: {
