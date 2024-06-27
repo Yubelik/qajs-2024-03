@@ -1,23 +1,23 @@
-import axios from 'axios'
+// import axios from 'axios'
 
 describe('User test', () => {
-  it('User exist Axios', async () => {
-    try {
-      const response = await axios.post(
-        'https://bookstore.demoqa.com/Account/v1/User',
-        {
-          userName: 'User',
-          password: 'Aasdasd_!231231',
-        },
-      )
-      console.log(response.data)
-    } catch (error) {
-      // console.log(error)
-    }
+  // it('User exist Axios', async () => {
+  //   try {
+  //     const response = await axios.post(
+  //       'https://bookstore.demoqa.com/Account/v1/User',
+  //       {
+  //         userName: 'User',
+  //         password: 'Aasdasd_!231231',
+  //       },
+  //     )
+  //     console.log(response.data)
+  //   } catch (error) {
+  //     // console.log(error)
+  //   }
 
-    console.log(response)
-    expect(response.status).toBe(406)
-  })
+  //   console.log(response)
+  //   expect(response.status).toBe(406)
+  // })
 
   it('User exist', async () => {
     const response = await fetch(
