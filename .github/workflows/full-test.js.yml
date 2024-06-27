@@ -40,17 +40,17 @@ jobs:
           if-no-files-found: error
           path: ./reports/
 
-    - name: send telegram message on push
-      uses: appleboy/telegram-action@master
-      with:
-        to: -1002197542084
-        # to: ${{ secrets.TELEGRAM_TO }}
-        token: "7232559745:AAEMbqz3zdQzcaaPcwIxmMDqvCugtA7MRNo"
-        # token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: |
-          ${{ github.actor }} created commit messege Yubelik:
-          Commit message: ${{ github.event.commits[0].message }}
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: -1002197542084
+          # to: ${{ secrets.TELEGRAM_TO }}
+          token: '7232559745:AAEMbqz3zdQzcaaPcwIxmMDqvCugtA7MRNo'
+          # token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.actor }} created commit messege Yubelik:
+            Commit message: ${{ github.event.commits[0].message }}
 
-          Repository: ${{ github.repository }}
+            Repository: ${{ github.repository }}
 
-          See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
