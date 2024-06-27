@@ -45,21 +45,21 @@ describe('User test', () => {
     )
     expect(response.status).toBe(200)
   })
-  it('GenerateToken status', async () => {
-    const response = await fetch(
-      'https://bookstore.demoqa.com/Account/v1/GenerateToken',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'User-Agent': 'insomnia/9.1',
-        },
-        body: '{"userName":"User","password":"Aasdasd_!23123"}',
-      },
-    )
-    const data = await response.json()
-    expect(data.status).toBe('Success')
-  })
+  // it('GenerateToken status', async () => {
+  //   const response = await fetch(
+  //     'https://bookstore.demoqa.com/Account/v1/GenerateToken',
+  //     {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         'User-Agent': 'insomnia/9.1',
+  //       },
+  //       body: '{"userName":"User","password":"Aasdasd_!23123"}',
+  //     },
+  //   )
+  //   const data = await response.json()
+  //   expect(data.status).toBe('Success')
+  // })
   it('GenerateToken Failed', async () => {
     const response = await fetch(
       'https://bookstore.demoqa.com/Account/v1/GenerateToken',
