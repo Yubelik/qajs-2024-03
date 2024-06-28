@@ -60,7 +60,7 @@ describe('User test', () => {
   //   const data = await response.json()
   //   expect(data.status).toBe('Success')
   // })
-  it('GenerateToken Failed', async () => {
+  it('GenerateToken Failed!', async () => {
     const response = await fetch(
       'https://bookstore.demoqa.com/Account/v1/GenerateToken',
       {
