@@ -47,7 +47,7 @@ jobs:
         with:
           name: report
           if-no-files-found: error
-          path: ./reports/html-report
+          path: ./reports/
 
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
