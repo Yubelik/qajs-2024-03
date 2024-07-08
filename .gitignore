@@ -3,3 +3,8 @@ coverage
 .env
 .vs/
 reports
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
