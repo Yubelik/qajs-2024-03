@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
+  "module": "module",
   "scripts": {
     "start": "babel-node src/main.js",
-    "test": "jest --verbose --setupFiles dotenv/config",
+    "test": "jest --setupFiles dotenv/config",
     "format:ci": "prettier . --check",
     "format": "prettier . --write",
     "lint:ci": "eslint .",
@@ -30,5 +30,8 @@
     "prettier": "^3.2.5",
     "supertest": "^7.0.0",
     "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }
