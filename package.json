@@ -6,7 +6,7 @@
   "module": "module",
   "scripts": {
     "start": "babel-node src/main.js",
-    "test": "jest --verbose --setupFiles dotenv/config",
+    "test": "jest",
     "format:ci": "prettier . --check",
     "format": "prettier . --write",
     "lint:ci": "eslint .",
