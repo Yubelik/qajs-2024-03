@@ -8,7 +8,7 @@ setCommonPlugins();
 
 /** @type {CodeceptJS.MainConfig} */
 exports.config = {
-  tests: './*_test.js',
+  tests: './BDD/*.test.js',
   output: './BDD/output',
   helpers: {
     Playwright: {
@@ -18,7 +18,7 @@ exports.config = {
     }
   },
   include: {
-    'Я': './steps_file.js'
+    'Я': './BDD/trener.test.js'
   },
   name: 'qajs-2024-03',
   translation: 'ru-RU'
