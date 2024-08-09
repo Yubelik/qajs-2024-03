@@ -5,18 +5,18 @@
 });
 
 // in this file you can append custom step methods to 'I' object
-Feature('Тестирование сайта хрустальные пазлы');
+Цель('Тестирование сайта хрустальные пазлы');
 
-Scenario('Вход под тренером', ({ I }) => {
+Сценарий('Вход под тренером', ({ I }) => {
   I.amOnPage('/login');
-  I.see('Войти Ваш e-mail Пароль Забыли пароль? Подтверждая, вы соглашаетесь на обработку персональных данных и c политикой конфиденциальности Войти Нет аккаунта? Зарегистрироваться');
+  Я.вижу('Войти Ваш e-mail Пароль Забыли пароль? Подтверждая, вы соглашаетесь на обработку персональных данных и c политикой конфиденциальности Войти Нет аккаунта? Зарегистрироваться');
   I.fillField('#root > div > div > div > form > div:nth-child(1) > input', "trainer@crystal.com")
   I.fillField('#root > div > div > div > form > div:nth-child(2) > input', 'trainerpass')
   I.click('#checkbox')
   I.click('Войти')
   I.see('ТРЕНЕР')
 });
-Scenario('Изменение аватарки', ({ I }) => {
+Сценарий('Изменение аватарки', ({ I }) => {
   I.amOnPage('/login');
   I.see('Войти Ваш e-mail Пароль Забыли пароль? Подтверждая, вы соглашаетесь на обработку персональных данных и c политикой конфиденциальности Войти Нет аккаунта? Зарегистрироваться');
   I.fillField('#root > div > div > div > form > div:nth-child(1) > input', "trainer@crystal.com")
@@ -31,7 +31,7 @@ Scenario('Изменение аватарки', ({ I }) => {
   I.see('Изменить')
   I.click('#root > div > div > div.Sidebar_wrapper__Wvnnl > aside > nav > div > svg')
 });
-Scenario('Уведомления', ({ I }) => {
+Сценарий('Уведомления', ({ I }) => {
   I.amOnPage('/login');
   I.see('Войти Ваш e-mail Пароль Забыли пароль? Подтверждая, вы соглашаетесь на обработку персональных данных и c политикой конфиденциальности Войти Нет аккаунта? Зарегистрироваться');
   I.fillField('#root > div > div > div > form > div:nth-child(1) > input', "trainer@crystal.com")
