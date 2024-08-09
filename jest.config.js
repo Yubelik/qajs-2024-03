@@ -1,17 +1,17 @@
 module.exports = {
   testEnvironment: 'node',
   collectCoverage: true,
-  // collectCoverageFrom: ['src/**/*.js'],
-  collectCoverageFrom: ['tests/*.js'],
+  collectCoverageFrom: ['tests/**/*.js'],
   moduleFileExtensions: ['js', 'json'],
+  transformIgnorePatterns: ['node_modules/(?!(sucrase)/)'],
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
+    '\\.[jt]sx?$': 'babel-jest',
   },
-  // testMatch: ['**/specs/*.spec.*'],
-  testMatch: ['**/tests/*.test.*'],
+  testMatch: ['**/tests/*.js', '**/?(*.)+(spec|test).[jt]s?(x)'],
   globals: {
     testTimeout: 50000,
   },
+  bail: 1,
   verbose: true,
   reporters: [
     'default',
