@@ -6,7 +6,8 @@
     "module": "module",
     "scripts": {
         "start": "babel-node src/main.js",
-        "test": "jest --setupFiles dotenv/config",
+        "test_back": "jest --setupFiles dotenv/config",
+        "test": "jest",
         "format:ci": "prettier . --check",
         "format": "prettier . --write",
         "lint:ci": "eslint .",
@@ -27,7 +28,7 @@
         "@codeceptjs/configure": "^1.0.1",
         "@codeceptjs/examples": "^1.2.4",
         "@codeceptjs/ui": "^0.7.7",
-        "codeceptjs": "^3.5.11",
+        "codeceptjs": "^3.6.5",
         "eslint": "^8.57.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-config-standard": "^17.1.0",
