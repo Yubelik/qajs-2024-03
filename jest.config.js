@@ -13,15 +13,15 @@ module.exports = {
   },
   bail: 1,
   verbose: true,
-  reporters: [
-    'default',
-    [
-      'jest-html-reporters',
-      {
-        publicPath: '../reports/html-report',
-        filename: 'index.html',
-        openReport: !process.env.CI,
-      },
-    ],
-  ],
+  // reporters: [
+  //   'default',
+  //   [
+  //     'jest-html-reporters',
+  //     {
+  //       publicPath: '../reports/html-report',
+  //       filename: 'index.html',
+  //       openReport: !process.env.CI,
+  //     },
+  //   ],
+  // ],
 }

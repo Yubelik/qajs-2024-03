@@ -1,10 +1,3 @@
-Цель('loginCP');
-
-Сценарий('test something',  ({ Я }) => {
-
-});
-
-// in this file you can append custom step methods to 'I' object
 Цель('Тестирование сайта хрустальные пазлы');
 
 Сценарий('Вход под тренером', ({ I }) => {

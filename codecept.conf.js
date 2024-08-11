@@ -10,7 +10,7 @@ exports.config = {
     }
   },
   include: {
-    'Я': './steps_file.js'
+    'Я': './BDD/steps_file.js'
   },
   name: 'qajs-2024-03',
   translation: 'ru-RU'
