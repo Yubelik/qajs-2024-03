@@ -1,5 +1,6 @@
 import config from '../config/configCrystalPuzzels.js'
-import supertest from 'supertest'
+// import supertest from 'supertest'
+import axios from 'axios'
 
 const addUser = async (userName, password) => {
   const response = await fetch(`${config.baseURL}/Account/v1/User`, {
@@ -15,22 +16,42 @@ const addUser = async (userName, password) => {
   }
 }
 
-const loginUser = async (userName, password) => {
-  const response = await fetch(`${config.baseURL}api/v1/auth/login/`, {
-    // const response = await fetch(`${config.baseURL}/api/v1/auth/login/`, {
+const loginUser = async ({ userName, password }) => {
+  const options = {
     method: 'POST',
+    url: `${config.baseURL}api/v1/auth/login/`,
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      username: 'ZRB0000@yahoo.com',
-      password: '12a~125465',
-    }),
-  })
-
-  return {
-    headers: response.headers,
-    status: response.status,
-    data: await response.json(),
+    data: { username: userName, password: password },
   }
+
+  await axios
+    .request(options)
+    .then(function (response) {
+      // console.log(response.status)
+      // console.log(response.data)
+      // console.log(response.data.access_token)
+      return {
+        response,
+        // headers: response.headers,
+        // status: response.status,
+        // access_token: response.data.access_token,
+      }
+    })
+    .catch(function (error) {
+      console.error(error)
+    })
+
+  // const response = await fetch(`${config.baseURL}api/v1/auth/login/`, {
+  //   // const response = await fetch(`${config.baseURL}/api/v1/auth/login/`, {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //   body: new URLSearchParams({
+  //     username: userName,
+  //     password: password,
+  //   }),
+  // })
+  // let commits = response.json()
+  // console.log('commits = ' + commits)
 }
 // console.log('userName, password = ' + config.username + config.password)
 // const responseLoginUser = loginUser(config.username, config.password)
@@ -42,6 +63,7 @@ const generateToken = async (userName, password) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(userName, password),
   })
+
   return {
     headers: response.headers,
     status: response.status,

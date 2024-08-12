@@ -15,12 +15,11 @@ let uuidUser
 describe('Логин', () => {
   it('Пользователь залогинет', async () => {
     const response = await AuthService.loginUser({
-      userName: config.username,
-      password: config.password,
+      userName: 'trainer@crystal.com',
+      password: 'trainerpass',
     })
-    console.log("response - "+response)
+    console.log(response.response)
     expect(response.status).toBe(200)
-    uuidUser = response.data.userId
   })
 })
 
