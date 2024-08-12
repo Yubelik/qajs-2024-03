@@ -1,0 +1,44 @@
+import AuthService from '../framework/services/AuthServiceCrystalPuzzels.js'
+import config from '../framework/config/configCrystalPuzzels.js'
+
+let uuidUser
+// describe('Создание пользователя', () => {
+//   it('Пользователь существует', async () => {
+//     const response = await AuthService.addUser({
+//       userName: config.username,
+//       password: config.password,
+//     })
+//     expect(response.status).toBe(406)
+//   })
+// })
+
+describe('Логин', () => {
+  it('Пользователь залогинет', async () => {
+    const response = await AuthService.loginUser({
+      userName: 'trainer@crystal.com',
+      password: 'trainerpass',
+    })
+    console.log(response.response)
+    expect(response.status).toBe(200)
+  })
+})
+
+// describe('Авторизация', () => {
+//   it('Успешная авторизация', async () => {
+//     const response = await AuthService.authorized({
+//       userName: config.username,
+//       password: config.password,
+//     })
+//     expect(response.status).toBe(200)
+//     expect(response.data).toBe(true)
+//   })
+// })
+// describe('Удаление пользователя', () => {
+//   it('Пользователь удален', async () => {
+//     const response = await AuthService.deletUser({
+//       uuid: uuidUser,
+//     })
+//     expect(response.status).toBe(200)
+//     expect(response.status).toBe(200)
+//   })
+// })
